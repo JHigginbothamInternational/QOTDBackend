@@ -84,5 +84,10 @@ def create_initial_date():
 
     return jsonify(date_schema.dump(record))
 
+@app.route("/date/get", methods=["GET"])
+def get_date():
+    record = db.session.query(Date).first()
+    return jsonify(date_schema.dump(record))
+
 if __name__ == "__main__":
     app.run(debug=True)
