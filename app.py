@@ -65,7 +65,7 @@ def get_quote_by_id(id):
     record = db.session.query(Quote).filter(Quote.id == id).first()
     return jsonify(quote_schema.dump(record))
 
-@app.route("/date/add", methods=["GET"])
+@app.route("/date/add", methods=["POST"])
 def create_initial_date():
     record_check = db.session.query(Date).first()
     if record_check is not None:
